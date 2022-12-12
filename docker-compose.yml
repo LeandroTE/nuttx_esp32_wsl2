@@ -1,0 +1,14 @@
+version: "2.4"
+services:
+  sindri:
+    build:
+      context: .
+      network: host
+    volumes:
+      - ./:/usr/local/src/nuttxspace/
+    ulimits:
+      nofile:
+        soft: 64000
+        hard: 64000
+
+

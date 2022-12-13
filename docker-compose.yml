@@ -5,7 +5,7 @@ services:
       context: .
       network: host
     volumes:
-      - ./:/usr/local/src/nuttxspace/
+      - ./:/root/nuttxspace/app_user/
     ulimits:
       nofile:
         soft: 64000

@@ -2,7 +2,10 @@
 Repository with environment to build nuttx for esp32 in windows using WSL2 (Also work in Ubuntu not tested in other linux distro)
 
 ## Build the container
-docker-compose build sindri
+```
+docker-compose run sindri
+```
+
 
 ## Build nuttx
 

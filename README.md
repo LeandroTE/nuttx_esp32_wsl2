@@ -16,6 +16,7 @@ docker-compose run sindri
 ### Build File
 ```
 make  
+make download ESPTOOL_PORT=/dev/ttyUSB0 ESPTOOL_BAUD=115200 ESPTOOL_BINDIR=../esp-bins
 ```
 # Using USB with WSL2
 
@@ -44,11 +45,11 @@ usbipd wsl list
 Select the bus ID of the device you’d like to attach to WSL and run this command. You’ll be prompted by WSL for a password to run a sudo command.
 
 ```
-usbipd wsl attach --busid=<busid>
+usbipd wsl attach --busid <busid>
 ```
 Example:
 ```
-usbipd wsl attach --busid=2-3
+usbipd wsl attach --busid 2-3
 ```
 
 To check for usb connection in WAL2 use ```lsusb``` command

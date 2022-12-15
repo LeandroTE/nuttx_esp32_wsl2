@@ -6,6 +6,8 @@ services:
       network: host
     volumes:
       - ./:/root/nuttxspace/app_user/
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0  
     ulimits:
       nofile:
         soft: 64000

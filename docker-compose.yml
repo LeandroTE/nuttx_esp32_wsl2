@@ -1,8 +1,12 @@
-version: "2.4"
+version: '3'
 services:
   sindri:
     build:
       context: .
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${UID}
+        GROUP_ID: ${GID}
       network: host
     volumes:
       - ./:/root/nuttxspace/

@@ -3,14 +3,18 @@ FROM ghcr.io/apache/nuttx/apache-nuttx-ci-linux
 ARG USER_ID
 ARG GROUP_ID
 
+RUN addgroup --gid $USER_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
 
-RUN groupadd -g $GROUP_ID builder \
-    && useradd -u $USER_ID -g builder -m builder
+RUN apt-get update && apt-get update && apt-get install -y \
+    #Utils
+    picocom
 
-USER builder
-WORKDIR /sources
+WORKDIR /root/nuttxspace/nuttx
+VOLUME ['/root/nuttxspace']
 
-CMD ["/bin/bash"]
+# set dummy git config
+RUN git config --global --add safe.directory /root/nuttxspace/nuttx
 
 
 

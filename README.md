@@ -17,14 +17,32 @@ sudo env UID=$(id -u) GID=$(id -g) docker compose run sindri
 ### Create config file
 
 ```
-./tools/configure.sh esp32-devkitc:nsh  
+./tools/configure.sh -l esp32s3-devkit:wifi
 ```
+
+To list available configs type
+
+```
+./tools/configure.sh -L | grep esp32  
+```
+
 
 ### Build File
 ```
 make  
 make download ESPTOOL_PORT=/dev/ttyUSB0 ESPTOOL_BAUD=115200 ESPTOOL_BINDIR=../esp-bins
 ```
+
+### Connectiong to board
+
+To connect to the board the build enviroment comes with picocom, to connect to the board use the command:
+```
+picocom -b 115200 /dev/ttyUSB0 
+```
+To exit picocom use CRTL+A , CTRL + X
+
+
+
 # Using USB with WSL2
 
 ## Installing

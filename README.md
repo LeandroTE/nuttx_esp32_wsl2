@@ -30,7 +30,7 @@ To list available configs type
 ### Build File
 ```
 make  
-make download ESPTOOL_PORT=/dev/ttyUSB0 ESPTOOL_BAUD=115200 ESPTOOL_BINDIR=../esp-bins
+make -j flash ESPTOOL_BINDIR=./ ESPTOOL_PORT=/dev/ttyUSB0
 ```
 
 ### Connectiong to board

@@ -18,7 +18,7 @@ BOARD="esp32s3-devkit"
 
 #Modules specific variables
 MODULES_NAME="modules"
-MODULES_PATH="modules"
+MODULES_PATH="CustomApps"
 APP_PATH="apps" 
 
 while getopts 'a:bh' OPTION

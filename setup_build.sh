@@ -17,7 +17,7 @@ CHIP="esp32s3"
 BOARD="esp32s3-devkit"
 
 #Modules specific variables
-MODULES_NAME="modules"
+MODULES_NAME="CustomApps"
 MODULES_PATH="CustomApps"
 APP_PATH="apps" 
 
@@ -45,25 +45,6 @@ shift $(($OPTIND - 1))
 
 BUILD_TIME="`date`"
 
-echo ""
-if [ ! -z $SFLAG ];then
-	if [ -f config/$APP/defconfig ];then
-		echo ""
-		echo "Found customized .config files"
-	else 
-		echo ""
-		echo "***Can't find config/$APP/defconfig file exiting***"
-		exit
-	fi
-
-	echo "Creates symbolic to archo board"
-	echo "First erease old symbolic link"
-	rm -rf ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/configs/$APP
-	ln -sr ./config/$APP ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/configs/
-	echo "Running config script"
-	./$NUTTX_PATH/tools/configure.sh -l $BOARD:$APP
-fi
-
 if [ ! -z $BFLAG ];then
 	echo "Copy Modules folder to APP folder"
 	# Check if the source directory exists
@@ -82,4 +63,26 @@ if [ ! -z $BFLAG ];then
 	ln -sr ./$MODULES_PATH ./$APP_PATH/
 
 	echo "Symbolic links creation completed."
+fi
+
+echo ""
+if [ ! -z $AFLAG ];then
+	if [ -f config/$APP/defconfig ];then
+		echo ""
+		echo "Found customized .config files"
+	else 
+		echo ""
+		echo "***Can't find config/$APP/defconfig file exiting***"
+		exit
+	fi
+
+	echo "Creates symbolic to archo board"
+	echo "First erease old symbolic link"
+	rm -rf ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/configs/$APP
+	ln -sr ./config/$APP ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/configs/
+	echo "Running config script"
+	cd $NUTTX_PATH
+	make clean
+	make distclean
+	./tools/configure.sh -l $BOARD:$APP
 fi

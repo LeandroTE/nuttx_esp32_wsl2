@@ -14,6 +14,14 @@ sudo env UID=$(id -u) GID=$(id -g) docker compose run sindri
 
 ## Build nuttx
 
+### Setup enviroment
+
+To configure the enviroment use the script setup_build, to use the setup script first define the board to be used.
+```
+./setup_build.sh -a Apolo
+```
+
+
 ### Create config file
 
 ```

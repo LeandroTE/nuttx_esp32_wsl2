@@ -21,8 +21,18 @@ To configure the enviroment use the script setup_build, to use the setup script 
 ./setup_build.sh -a Apolo
 ```
 
+Optionally you can run the simulation
+```
+./setup_build.sh -a sim
+```
 
-### Create config file
+Is also possible to use the -b option to copy the CustomApp folder to Apps folder to add to the build enviroment your custom apps
+```
+./setup_build.sh -b -a sim
+```
+
+
+### Create manual config file
 
 ```
 ./tools/configure.sh -l esp32s3-devkit:wifi
@@ -33,7 +43,6 @@ To list available configs type
 ```
 ./tools/configure.sh -L | grep esp32  
 ```
-
 
 ### Build File
 ```
@@ -49,6 +58,14 @@ picocom -b 115200 /dev/ttyUSB0
 ```
 To exit picocom use CRTL+A , CTRL + X
 
+## Export defconfig after make menuconfig customization
+
+To export the defconfig file after a manual customization, for exempla to add to acustom borad in the config file use the commando below:
+
+```
+make savedefconfig
+```
+After this comando a filde called defconfig will be saved in the root of nuttx directory
 
 
 # Using USB with WSL2

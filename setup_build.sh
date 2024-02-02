@@ -71,6 +71,14 @@ if [ ! -z $AFLAG ];then
 		echo ""
 		echo "Found customized .config files"
 	else 
+		if [ "$APP" = "sim" ]; then
+    		echo "Simulation configured"
+			cd $NUTTX_PATH
+			make clean
+			make distclean
+			./tools/configure.sh sim:tcpblaster
+			exit
+		fi	
 		echo ""
 		echo "***Can't find config/$APP/defconfig file exiting***"
 		exit

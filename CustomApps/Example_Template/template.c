@@ -1,15 +1,21 @@
 /***********************************************************************************************************************
- * © 2023 Time Energy Ltd. All rights reserved.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * ATTENTION: This file contains confidential information and cannot be
- * reproduced or distributed (in whole or in part), without prior written
- * authorization from Time Energy.
+ * ATTENTION:  This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * @file    template.c
  * @brief   Standard Time Energy C file template
  * @author  Leandro Pereira
  * @date    30/10/2023
- * @company Time Energy
  *
  **********************************************************************************************************************/
 
@@ -127,17 +133,23 @@ void Template_Public_Function(float var1, int var2) {
 // Copy this section below when creating a new file for a .c file
 
 /***********************************************************************************************************************
- * © 2023 Time Energy Ltd. All rights reserved.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
  *
- * ATTENTION: This file contains confidential information and cannot be
- * reproduced or distributed (in whole or in part), without prior written
- * authorization from Time Energy.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * @file    template.c
  * @brief   Standard Time Energy C file template
  * @author  Leandro Pereira
  * @date    30/10/2023
- * @company Time Energy
  *
  **********************************************************************************************************************/
 

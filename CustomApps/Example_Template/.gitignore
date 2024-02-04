@@ -1,0 +1,4 @@
+.kconfig
+.built
+.depend
+Make.dep

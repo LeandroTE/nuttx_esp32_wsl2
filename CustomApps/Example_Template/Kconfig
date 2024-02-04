@@ -3,26 +3,26 @@
 # see the file kconfig-language.txt in the NuttX tools repository.
 #
 
-config EXAMPLES_CUSTOMM_APP
-	tristate "\"CUSTOMM_APP, World!\" example"
+config CUSTOMAPPS_EXAMPLE
+	tristate "\"Hello, World!\" example"
 	default n
 	---help---
 		Enable the \"Hello, World!\" example
 
-if EXAMPLES_CUSTOMM_APP
+if CUSTOMAPPS_EXAMPLE
 
-config EXAMPLES_CUSTOMM_APP_PROGNAME
+config CUSTOMAPPS_EXAMPLE_PROGNAME
 	string "Program name"
-	default "hello"
+	default "Example_Template"
 	---help---
 		This is the name of the program that will be used when the NSH ELF
 		program is installed.
 
-config EXAMPLES_CUSTOMM_APP_PRIORITY
+config CUSTOMAPPS_EXAMPLE_PRIORITY
 	int "Hello task priority"
 	default 100
 
-config EXAMPLES_CUSTOMM_APP_STACKSIZE
+config CUSTOMAPPS_EXAMPLE_STACKSIZE
 	int "Hello stack size"
 	default DEFAULT_TASK_STACKSIZE
 

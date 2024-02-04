@@ -18,14 +18,14 @@
 #
 # ##############################################################################
 
-if(CONFIG_EXAMPLES_CUSTOMM_APP)
+if(CONFIG_CUSTOMAPPS_EXAMPLE)
   nuttx_add_application(
     NAME
-    ${CONFIG_EXAMPLES_CUSTOMM_APP_PROGNAME}
+    ${CONFIG_CUSTOMAPPS_EXAMPLE_PROGNAME}
     SRCS
-    hello_main.c
+    custom_main.c
     STACKSIZE
-    ${CONFIG_EXAMPLES_CUSTOMM_APP_STACKSIZE}
+    ${CONFIG_CUSTOMAPPS_EXAMPLE_STACKSIZE}
     PRIORITY
-    ${CONFIG_EXAMPLES_CUSTOMM_APP_PRIORITY})
+    ${CONFIG_ECUSTOMAPPS_EXAMPLE_PRIORITY})
 endif()

@@ -71,19 +71,16 @@ if [ ! -z $AFLAG ];then
 		echo ""
 		echo "Found customized .config files"
 	else 
-		if [ "$APP" = "sim" ]; then
-    		echo "Simulation configured"
-			cd $NUTTX_PATH
-			make clean
-			make distclean
-			./tools/configure.sh sim:tcpblaster
-			exit
-		fi	
 		echo ""
 		echo "***Can't find config/$APP/defconfig file exiting***"
 		exit
 	fi
-
+	if [[ "$APP" == sim* ]]; then
+		echo "Simulation configuration detected"
+		ARCH="sim"
+		CHIP="sim"
+		BOARD="sim"
+	fi	
 	echo "Creates symbolic to archo board"
 	echo "First erease old symbolic link"
 	rm -rf ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/configs/$APP

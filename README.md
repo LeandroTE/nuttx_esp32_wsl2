@@ -12,6 +12,10 @@ Execute o container
 sudo env UID=$(id -u) GID=$(id -g) docker compose run sindri
 ```
 
+<br>
+<br>
+
+
 ## Build nuttx
 
 ### Setup enviroment
@@ -31,7 +35,41 @@ Is also possible to use the -b option to copy the CustomApp folder to Apps folde
 ./setup_build.sh -b -a sim
 ```
 
+### Build File
+```
+make  
+make -j flash ESPTOOL_BINDIR=./ ESPTOOL_PORT=/dev/ttyUSB0
+```
+<br>
+<br>
 
+## Using nuttx
+### Connectiong to board
+
+To connect to the board the build enviroment comes with picocom, to connect to the board use the command:
+```
+picocom -b 115200 /dev/ttyUSB0 
+```
+To exit picocom use CRTL+A , CTRL + X
+
+### Run simulation
+
+After building with "make" run
+```
+./nuttx
+login: admin
+password: Administrator
+```
+
+To stop simulation
+
+```
+nsh> poweroff
+```
+<br>
+<br>
+
+## Configuring Nuttx
 ### Create manual config file
 
 ```
@@ -44,21 +82,7 @@ To list available configs type
 ./tools/configure.sh -L | grep esp32  
 ```
 
-### Build File
-```
-make  
-make -j flash ESPTOOL_BINDIR=./ ESPTOOL_PORT=/dev/ttyUSB0
-```
-
-### Connectiong to board
-
-To connect to the board the build enviroment comes with picocom, to connect to the board use the command:
-```
-picocom -b 115200 /dev/ttyUSB0 
-```
-To exit picocom use CRTL+A , CTRL + X
-
-## Export defconfig after make menuconfig customization
+### Export defconfig after make menuconfig customization
 
 To export the defconfig file after a manual customization, for exempla to add to acustom borad in the config file use the commando below:
 
@@ -67,6 +91,8 @@ make savedefconfig
 ```
 After this comando a filde called defconfig will be saved in the root of nuttx directory
 
+<br>
+<br>
 
 # Using USB with WSL2
 

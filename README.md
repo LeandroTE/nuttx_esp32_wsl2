@@ -22,7 +22,7 @@ sudo env UID=$(id -u) GID=$(id -g) docker compose run sindri
 
 To configure the enviroment use the script setup_build, to use the setup script first define the board to be used.
 ```
-./setup_build.sh -a Apolo
+./setup_build.sh -a apolo
 ```
 
 Optionally you can run the simulation
@@ -32,7 +32,7 @@ Optionally you can run the simulation
 
 Is also possible to use the -b option to copy the CustomApp folder to Apps folder to add to the build enviroment your custom apps
 ```
-./setup_build.sh -b -a sim
+./setup_build.sh -b -a apolo
 ```
 
 ### Build File

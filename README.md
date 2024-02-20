@@ -66,6 +66,16 @@ To stop simulation
 ```
 nsh> poweroff
 ```
+
+### Configuring Wifi ###
+
+```
+ifup wlan0
+wapi mode wlan0 2
+wapi psk wlan0 <PSK_KEY_WIFI> 3
+wapi essid wlan0 <SSID_WIFI> 1
+renew wlan0
+```
 <br>
 <br>
 

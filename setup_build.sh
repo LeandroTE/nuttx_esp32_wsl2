@@ -21,7 +21,7 @@ MODULES_NAME="CustomApps"
 MODULES_PATH="CustomApps"
 APP_PATH="apps" 
 
-while getopts 'a:bh' OPTION
+while getopts 'a:bih' OPTION
 do
 	case $OPTION in
 	a)	
@@ -31,7 +31,9 @@ do
 	b)	
 		BFLAG=1
 		;;
-
+	i)	
+		IFLAG=1
+		;;
 	h|?)	printf "Setup Image for ChronOS\n\n"
 		printf "Usage: %s [-a <board>] \n" $(basename $0) >&2
 		printf "	-a: Configuration\n"
@@ -90,4 +92,13 @@ if [ ! -z $AFLAG ];then
 	make clean
 	make distclean
 	./tools/configure.sh -l $BOARD:$APP
+	if [ ! -z $IFLAG ];then
+		echo "Copy Init Script to APP folder"
+		rm -rf ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/include/rcS.template
+		cp ./config/apolo/scripts/rcS.template ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/include/rcS.template
+		cd ./$NUTTX_PATH/boards/$ARCH/$CHIP/$BOARD/include
+		../../../../../tools/mkromfsimg.sh -nofat ../../../../.. rcS.template 
+		cd ../../../../../../
+	fi
+
 fi

@@ -1,0 +1,5 @@
+ifup wlan0
+wapi mode wlan0 2
+wapi psk wlan0 @cessorestrito! 3
+wapi essid wlan0 IoT-TE 1
+renew wlan0
